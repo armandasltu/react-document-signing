@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Copyright from './components/Copyright';
 import Header from './components/Header';
 import PdfPreview from './components/PdfPreview';
+import VerticalTabs from './components/VerticalTabs';
 
 export default function App() {
   return (
@@ -17,13 +17,9 @@ export default function App() {
             <PdfPreview />
           </Grid>
           <Grid item xs={12} md={5}>
-            <Paper>
-              <Box m={4} px={2}>
-                <Typography variant="h4" component="h1" gutterBottom>
-                  Comments
-                </Typography>
-              </Box>
-            </Paper>
+            <Box my={4}>
+              <VerticalTabs />
+            </Box>
             <Copyright />
           </Grid>
         </Grid>
