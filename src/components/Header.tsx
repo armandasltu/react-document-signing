@@ -2,7 +2,6 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import {
   AppBar as AppBarMui,
-  Avatar,
   Divider as DividerMui,
   IconButton,
   Toolbar,
@@ -12,7 +11,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
-import { deepPurple } from '@material-ui/core/colors';
+import Avatar from './Avatar';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -20,10 +19,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1
-  },
-  avatar: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500]
   }
 }));
 
@@ -47,7 +42,7 @@ const Header: React.FC = () => {
         >
           EULA Free Font License Ver. 2.0
         </Typography>
-        <Avatar className={classes.avatar}>AM</Avatar>
+        <Avatar>AM</Avatar>
         <Divider orientation="vertical" flexItem />
         <Button variant="outlined">Decline</Button>
         <Box ml={1} />

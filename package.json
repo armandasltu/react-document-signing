@@ -8,12 +8,15 @@
     "@phuocng/react-pdf-viewer": "^1.7.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/uuid": "^8.3.0",
+    "moment": "^2.29.1",
     "pdfjs-dist": "2.4.456",
     "prettier": "^2.1.2",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "uuid": "^8.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
