@@ -16,6 +16,13 @@ const theme = createMuiTheme({
     background: {
       default: '#F5F5F5'
     }
+  },
+  overrides: {
+    MuiButton: {
+      containedPrimary: {
+        color: 'white'
+      }
+    }
   }
 });
 
