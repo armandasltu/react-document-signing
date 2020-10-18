@@ -26,10 +26,10 @@ const VerticalTabs: React.FC = () => {
     <Paper>
       <Box display="flex">
         <Box flexGrow={1}>
-          <TabPanel title={'Overview'} value={value} index={1}>
+          <TabPanel title={'Overview'} value={value} index={0}>
             <Overview />
           </TabPanel>
-          <TabPanel title={'Comments'} value={value} index={0}>
+          <TabPanel title={'Comments'} value={value} index={1}>
             <Comments />
           </TabPanel>
         </Box>

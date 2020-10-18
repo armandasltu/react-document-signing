@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 interface CommentListProps {
   comments: CommentData[];
   onDelete: (id: string) => void;
+  onEdit: (comment: CommentData) => void;
 }
 
 const useStyles = makeStyles({
@@ -21,13 +22,17 @@ const useStyles = makeStyles({
   }
 });
 
-const CommentList: React.FC<CommentListProps> = ({ comments, onDelete }) => {
+const CommentList: React.FC<CommentListProps> = ({
+  comments,
+  onDelete,
+  onEdit
+}) => {
   const classes = useStyles();
-  console.log('CommentList', comments);
 
   return (
     <>
-      {comments.map(({ id, name, message, timestamp }, index) => {
+      {comments.map((comment, index) => {
+        const { id, name, message, timestamp } = comment;
         const initials = getInitials(name);
         const date = moment(timestamp).format('YYYY-MM-DD HH:MM');
 
@@ -46,7 +51,7 @@ const CommentList: React.FC<CommentListProps> = ({ comments, onDelete }) => {
               <Box display="flex" justifyContent="space-between">
                 <b>{name}</b>
                 <div>
-                  <IconButton size="small">
+                  <IconButton size="small" onClick={() => onEdit(comment)}>
                     <EditIcon fontSize="small" />
                   </IconButton>
                   <IconButton size="small" onClick={() => onDelete(id)}>
