@@ -12,6 +12,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
+import { deepPurple } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -19,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1
+  },
+  avatar: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500]
   }
 }));
 
@@ -42,7 +47,7 @@ const Header: React.FC = () => {
         >
           EULA Free Font License Ver. 2.0
         </Typography>
-        <Avatar>AM</Avatar>
+        <Avatar className={classes.avatar}>AM</Avatar>
         <Divider orientation="vertical" flexItem />
         <Button variant="outlined">Decline</Button>
         <Box ml={1} />
@@ -60,11 +65,11 @@ const AppBar = withStyles((theme) => ({
   }
 }))(AppBarMui);
 
-const Divider = withStyles((theme) => ({
+const Divider = withStyles({
   root: {
     height: 32,
     margin: 'auto 16px'
   }
-}))(DividerMui);
+})(DividerMui);
 
 export default Header;
