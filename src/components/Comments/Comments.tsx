@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Typography from '@material-ui/core/Typography';
 import {
   Box,
   Button,
@@ -16,6 +15,7 @@ import SendMessageIcon from '@material-ui/icons/ArrowUpward';
 import CommentList from './components/CommentsList';
 import { CommentData } from 'types';
 import { v4 as uuid } from 'uuid';
+import NoComments from './components/NoComments';
 
 const Comments: React.FC = () => {
   const initialComments = JSON.parse(localStorage.getItem('comments') ?? '');
@@ -46,22 +46,6 @@ const Comments: React.FC = () => {
       setCommentMessage('');
     }
   };
-
-  const handleCommentChange = ({ target }: React.ChangeEvent<any>) => {
-    setCommentMessage(target.value);
-  };
-
-  const NoComments = () => (
-    <Box p={3} textAlign="center">
-      <Typography variant="h2">
-        <span role="img" aria-label="No comments">
-          🎈
-        </span>
-      </Typography>
-      <Typography variant="h6">No comments yet</Typography>
-      <Typography variant="subtitle1">Be the first to add a comment</Typography>
-    </Box>
-  );
 
   const onCommentDelete = (id: string) => {
     setComments(comments.filter((comment) => comment.id !== id));
@@ -98,7 +82,9 @@ const Comments: React.FC = () => {
       <Box p={3} display="flex">
         <TextField
           value={commentMessage}
-          onChange={handleCommentChange}
+          onChange={({ target }: React.ChangeEvent<any>) => {
+            setCommentMessage(target.value);
+          }}
           label="Type comment"
           variant="outlined"
           size="small"
